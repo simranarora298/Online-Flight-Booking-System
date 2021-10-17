@@ -1,4 +1,4 @@
-package capg.poc.BookingService.models;
+package capg.poc.AdminService.models;
 
 public class Airport 
 {

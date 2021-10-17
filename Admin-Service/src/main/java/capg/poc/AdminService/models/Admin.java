@@ -1,7 +1,13 @@
 package capg.poc.AdminService.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "admin")
 public class Admin {
 	
+	@Id
+	private String adminId;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -11,13 +17,21 @@ public class Admin {
 	public Admin() {
 	}
 	
-	public Admin(String firstName, String lastName, String email, long mobNo, Address address) {
-		super();
+	public Admin(String adminId, String firstName, String lastName, String email, long mobNo, Address address) {
+		this.adminId=adminId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.mobNo = mobNo;
 		this.address = address;
+	}
+
+	public String getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
 	}
 
 	public String getFirstName() {
@@ -50,11 +64,4 @@ public class Admin {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-	@Override
-	public String toString() {
-		return "Admin [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", mobNo=" + mobNo
-				+ ", address=" + address + "]";
-	}
-
 }
