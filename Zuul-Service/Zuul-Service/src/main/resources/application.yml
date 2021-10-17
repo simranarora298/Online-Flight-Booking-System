@@ -1,0 +1,24 @@
+zuul:
+  prefix: /api-gateway
+  routes:
+    Passenger-Service:
+      path: /passengers/**
+      url: http://localhost:8081 
+    Admin-Service: 
+      path: /admins/**
+      url: http://localhost:8082
+    Flight-Service:
+      path: /flights/**
+      url: http://localhost:8083
+    Booking-Service:
+      path: /bookings/**
+      url: http://localhost:8084
+      
+eureka:
+  client:
+    servicre-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: localhost

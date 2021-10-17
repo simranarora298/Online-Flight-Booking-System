@@ -11,7 +11,7 @@ public class Airport
 	}
 	
 	public Airport(String id, String name, String city, String country) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.city = city;

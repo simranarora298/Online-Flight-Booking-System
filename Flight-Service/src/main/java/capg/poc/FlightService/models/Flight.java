@@ -1,36 +1,37 @@
 package capg.poc.FlightService.models;
 
-import java.time.LocalDateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "flight")
 public class Flight {
-
-	private String id;
+	
+	@Id
+	private String flightId;
 	private String flightName;
 	private Airport airport;
 	private String departureLocation;
 	private String arrivalLocation;
-	private LocalDateTime departureDateTime;
-	private LocalDateTime arrivalDateTime;
+	private String date;
 	private int fare;
 	
 	public Flight() {
 	}
 
-	public Flight(String id, String flightName, Airport airport, String departureLocation, String arrivalLocation,
-			LocalDateTime departureDateTime, LocalDateTime arrivalDateTime, int fare) {
-		super();
-		this.id = id;
+	public Flight(String flightId, String flightName, Airport airport, String departureLocation, String arrivalLocation,
+			String date, int fare) {
+		
+		this.flightId = flightId;
 		this.flightName = flightName;
 		this.airport = airport;
 		this.departureLocation = departureLocation;
 		this.arrivalLocation = arrivalLocation;
-		this.departureDateTime = departureDateTime;
-		this.arrivalDateTime = arrivalDateTime;
+		this.date=date;
 		this.fare = fare;
 	}
 
-	public String getId() {
-		return id;
+	public String getFlightId() {
+		return flightId;
 	}	
 	public String getFlightName() {
 		return flightName;
@@ -44,14 +45,14 @@ public class Flight {
 	public String getArrivalLocation() {
 		return arrivalLocation;
 	}
-	public LocalDateTime getDepartureDateTime() {
-		return departureDateTime;
+	public String getDate() {
+		return date;
 	}
-	public LocalDateTime getArrivalDateTime() {
-		return arrivalDateTime;
+	public int getFare() {
+		return fare;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setFlightId(String flightId) {
+		this.flightId = flightId;
 	}
 	public void setFlightName(String flightName) {
 		this.flightName = flightName;
@@ -65,31 +66,14 @@ public class Flight {
 	public void setArrivalLocation(String arrivalLocation) {
 		this.arrivalLocation = arrivalLocation;
 	}
-	public void setDepartureDateTime(LocalDateTime departureDateTime) {
-		this.departureDateTime = departureDateTime;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
-		this.arrivalDateTime = arrivalDateTime;
-	}
-
-	public int getFare() {
-		return fare;
-	}
-
 	public void setFare(int fare) {
 		this.fare = fare;
 	}
 
-	@Override
-	public String toString() {
-		return "Flight [id=" + id + ", flightName=" + flightName + ", airport=" + airport + ", departureLocation="
-				+ departureLocation + ", arrivalLocation=" + arrivalLocation + ", departureDateTime="
-				+ departureDateTime + ", arrivalDateTime=" + arrivalDateTime + ", fare=" + fare + "]";
-	}
-
 	
 
 
-	 
-	
 }
